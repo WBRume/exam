@@ -8,6 +8,7 @@
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 <link type="text/css" rel="stylesheet" href="css/material_icons.css">
+	<link type="text/css" rel="stylesheet" href="css/mobileadaptive.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
 	body {

@@ -9,6 +9,7 @@
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 <link type="text/css" rel="stylesheet" href="css/material_icons.css">
+	<link type="text/css" rel="stylesheet" href="css/mobileadaptive.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
 	body {
@@ -90,11 +91,14 @@
 						<td>
 							包含选择题
 							<s:property value="#attr['EXAM_QUESTION_'+id].CHOICE_LIST.size" />道,
+
 							填空题
 							<s:property value="#attr['EXAM_QUESTION_'+id].BLANK_LIST.size" />道(共含
 							<s:property value="#attr['EXAM_QUESTION_'+id].BLANK_CNT" />个空),
+
 							判断题
 							<s:property value="#attr['EXAM_QUESTION_'+id].JUDGE_LIST.size" />道。
+
 							</td>
 					</tr>
 				</s:iterator>
@@ -188,7 +192,7 @@
 				<span class="yellow-text text-lighten-1">指定参加考试的学生
         		<i class="material-icons right">loop</i></span>
     		</button>
-    		
+
     		<div id="students" style="margin-top:20px;">
     			<s:iterator value="studentList" status="st" var="item">
     				<div class="chip" style="margin:2px;">
@@ -198,12 +202,24 @@
     			</s:iterator>
     		</div>
     		
-    		<button class="red darken-4 waves-effect waves-teal btn-flat" 
-			type="button" style="margin-top:20px;<s:if test='studentList==null || studentList.size==0'>display:none;</s:if>" id="selectStudentButton"
-			onclick="form1.action='createstudentexam';form1.submit();">
+
+
+              <button class="red darken-4 waves-effect waves-teal btn-flat"
+                    type="button" style="margin-top:20px;<s:if test='studentList==null || studentList.size==0'>display:none;</s:if>" id="selectStudentButton"
+                    onclick="form1.action='createstudentexam';form1.submit();">
 				<span class="yellow-text text-lighten-1">为这些学生创建考试
         		<i class="material-icons right">loop</i></span>
-    		</button>
+            </button>
+
+
+            <button class="purple darken-4 waves-effect waves-teal btn-flat"
+                    type="button" style="margin-top:20px;<s:if test='studentList==null || studentList.size==0'>display:none;</s:if>" id="selectStudentButton2"
+                    onclick="form1.action='createstudentexamtorandom';form1.submit();">
+				<span class="yellow-text text-lighten-1">为这些学生随机分配试题
+        		<i class="material-icons right">loop</i></span>
+            </button>
+
+
 		</div>
 	</div>
 	</form>
@@ -357,7 +373,7 @@
 		function toast2(){
 			var msgStr='<s:property value="actionMessages[0]"/>';
 		    var $toastContent = $('<span class="teal-text lighten-5"><h4>'+msgStr+'</h4></span>');
-		    Materialize.toast($toastContent, 4000, 'rounded');
+		    Materialize.toast($toastContent, 6000, 'rounded');
 		}
 	</script>
 	</s:if>

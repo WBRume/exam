@@ -1,23 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
+
 <header>
     <div class="navbar-fixed">
         <nav class="light-green darken-1">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="main.jsp" class="brand-logo">Java考试网站</a>
-                    <ul id="nav-mobile4" class="right hide-on-med-and-down">
+                    <a href="main.jsp" class="brand-logo">在线考试</a>
+                    <ul id="nav-mobile4" class="right">
                     	<s:if test="#session['USER_INFO']==null">
-                        <li><a href="#logindialog" class="waves-effect waves-light btn modal-trigger">登录</a></li>
+                        <li class="loginli"><a  id="loginbtn" href="#logindialog" class="waves-effect waves-light btn modal-trigger">登录</a></li>
                         </s:if>
                         <s:else>
                         <li>
-							<div class="chip">
+							<div class="chip white-img">
 								<a href="#" class="dropdown-button" style="color:#d50000;" data-activates="user_dropdown" data-induration="3000"
       								data-beloworigin="true" data-hover="true">
-						        <img src="images/soccer4.jpg" alt="大黄鸭">
-						        	<s:property value="#session['USER_INFO'].name"/>
+						        <img id="myIcon" src="images/soccer4.jpg" alt="大黄鸭">
+                                    <s:property value="#session['USER_INFO'].name"/>
 						        </a>
 						    </div>
 						    <ul class="dropdown-content yellow lighten-5" id="user_dropdown">
@@ -28,7 +29,7 @@
 						        onclick="loginform.action='logout';loginform.submit();">退出登陆</a></li>
 						    </ul>
 					    </li>
-					    <script>
+					  <%--  <script>
 					    	//登录成功后，开启与服务器的WebSocket连接，等待接收推送消息
 					    	var ws = new WebSocket("ws://" + window.location.host +  "<%=request.getContextPath()%>/websocket/broadcast");
 					    	ws.onopen=function(){
@@ -39,12 +40,11 @@
 								var $toastContent = $('<span class="yellow-text lighten-5"><h4>'+evt.data+'</h4></span>');
 							    Materialize.toast($toastContent, 8000, 'rounded');
 							}	
-					    </script>
+					    </script>--%>
                         </s:else>
-                        <li><a href="#">签到</a></li>
-                        <li class="active"><a href="#">考试</a></li>
-                        <li><a href="#">作业</a></li>
-                        <li><a href="#">微课</a></li>
+
+                        <li class="active e1"><a href="#" id="examheader">考试</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -61,8 +61,8 @@
 	            <div class="input-field col s11" style="margin: 0 auto;">
 	                <!-- i class="material-icons prefix">account_circle</i-->
 	                <i class="fas fa-user fa-3x prefix"></i>
-	                <input type="text" placeholder="输入学号" id="registerNo" name="registerNo" class="validate" style="font-size:large" autocomplete="off">
-	                <label for="registerNo">学号</label>
+	                <input type="text" placeholder="输入账号" id="registerNo" name="registerNo" class="validate" style="font-size:large" autocomplete="off">
+	                <label for="registerNo">账号</label>
 	            </div>
 	            <div class="input-field col s11">
 	                <!-- i class="material-icons prefix">phone</i-->

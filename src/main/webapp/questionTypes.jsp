@@ -10,7 +10,11 @@
 <link type="text/css" rel="stylesheet" href="css/fontawesome-all.min.css">
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 <link type="text/css" rel="stylesheet" href="css/material_icons.css">
+	<link type="text/css" rel="stylesheet" href="css/mobileadaptive.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name=“format-detection” content=“telephone=no” />
+	<meta name=“app-mobile-web-app-capable”  content=“yes" />
+	<meta name=“app-mobile-web-app-status-bar-style” content=“black-translucent” />
 <style type="text/css">
 body {
 	font-family: Roboto, "Microsoft YaHei";

@@ -40,7 +40,10 @@
 				<param name="root">broadcastStudentList</param>
 			</result>
 		</action>
-
+		<!-- 积分统计 -->
+		<action name="studentscorelist" class="studentScoreList">
+            <result>studentScore.jsp</result>
+        </action>
 		<!-- 考试管理 -->
 		<action name="examlist" class="examListShow"><!-- deprecated, 主页上被studentexamlist的action代替 -->
 			<result>examList.jsp</result>
@@ -197,11 +200,17 @@
 			<result>examCompose.jsp</result>
 		</action>
 
+        <action name="createstudentexamtorandom" class="examCompose"
+                method="executeForCreateStudentExamRandom">
+            <result>examCompose.jsp</result>
+        </action>
+
 		<action name="updatestrategyname" class="updateStrategyName">
 			<result type="json">
 				<param name="root">updatedStrategy</param>
 			</result>
 		</action>
+
 		<action name="updatechoicescore" class="updateStrategyScore"
 			method="updateForChoice">
 			<result type="json">

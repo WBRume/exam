@@ -10,6 +10,7 @@
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 <link type="text/css" rel="stylesheet" href="css/material_icons.css">
+	<link type="text/css" rel="stylesheet" href="css/mobileadaptive.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
     body {
@@ -50,8 +51,8 @@
     		</button>
 			<button class="teal darken-4 waves-effect waves-teal btn-flat" 
 			type="button" name="action" 
-			onclick="if(window.confirm('将关闭本浏览器窗口，继续吗？')){window.close();}">
-				<span class="yellow-text text-lighten-1">关闭
+			onclick="backMain()">
+				<span class="yellow-text text-lighten-1">返回首页
         		<i class="material-icons right">send</i></span>
     		</button>
    		</div>
@@ -61,6 +62,9 @@
 	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script type="text/javascript">
+		function backMain(){
+            window.location =  './main.jsp';
+		}
 	</script>
 	<%@ include file="include/footer.jsp" %>
 </body>

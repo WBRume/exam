@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!--
 <footer class="page-footer light-green darken-1">
     <div class="container">
         <div class="row">
@@ -18,10 +19,5 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright">
-        <div class="container">
-            © 2016-2018 洛阳师范学院 电子商务学院    &nbsp;作者: lyq
-            <a class="grey-text text-lighten-4 right" href="mailto:mikemelon@sina.com">跟我联系</a>
-        </div>
-    </div>
 </footer>
+-->

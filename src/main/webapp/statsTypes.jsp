@@ -10,6 +10,7 @@
 <link type="text/css" rel="stylesheet" href="css/fontawesome-all.min.css">
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 <link type="text/css" rel="stylesheet" href="css/material_icons.css">
+	<link type="text/css" rel="stylesheet" href="css/mobileadaptive.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
 body {
@@ -48,7 +49,7 @@ a{
 					</div>
 				</div>
 				
-				<div class="col s12 m4">
+			<%--	<div class="col s12 m4">
 					<div class="card">
 						<div class="card-image waves-effect waves-block waves-light my-opacity">
 							<a href="<s:url action="scorestats"/>"><img class="activator" src="images/bar_stats2.png"></a>
@@ -74,13 +75,13 @@ a{
 							<p><a href="<s:url action="questionstats"/>">分析题库中某道题的答题情况</a></p>
 						</div>
 					</div>
-				</div>
+				</div>--%>
 				
 			</div>
 		</div>
 	</div>
 
-	<%@ include file="include/footer.jsp"%>
+<%--	<%@ include file="include/footer.jsp"%>--%>
 
 	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>

@@ -10,7 +10,9 @@
 <link type="text/css" rel="stylesheet" href="css/fontawesome-all.min.css">
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 <link type="text/css" rel="stylesheet" href="css/material_icons.css">
+	<link type="text/css" rel="stylesheet" href="css/mobileadaptive.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style type="text/css">
 body {
 	font-family: Roboto, "Microsoft YaHei";
@@ -22,7 +24,7 @@ body {
 }
 
 .mytable td {
-	padding: 5px 10px;
+	padding: 5px 10px 5px 10px;
 }
 
 .namelink a {

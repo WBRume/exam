@@ -9,6 +9,7 @@
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 <link type="text/css" rel="stylesheet" href="css/material_icons.css">
+	<link type="text/css" rel="stylesheet" href="css/mobileadaptive.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
 	body {
@@ -101,7 +102,7 @@
 				<caption id="strategyName"><span id="strategyNameSp"><s:property value="examStrategyName" /></span><input type='text' style='width:200px;' name='examStrategyName' 
 							value='<s:property value="examStrategyName" />' onchange="changeStrategyNameSpan()"></caption>
 				<thead>
-					<tr>
+					<tr class="questionChoice">
 						<th>选择题个数</th>
 						<th>选择题每题分数</th>
 						<th>填空题个数</th>
@@ -114,33 +115,33 @@
 					<tr>
 						<td id="choiceQuestionNumTd">
 							<span id="choiceQuestionNum"><s:property value="choiceQuestionNum"/></span>
-							<a href=# onclick='changeChoiceQuestionNum(true);'><img src='images/plus1.png' width='20'></a>
-							<a href=# onclick='changeChoiceQuestionNum(false);'><img src='images/minus1.png' width='20'></a>
+							<a href=# onclick='changeChoiceQuestionNum(true);'><img src='images/plus1.png' width='20' class="changeButton"></a>
+							<a href=# onclick='changeChoiceQuestionNum(false);'><img src='images/minus1.png' width='20' class="changeButton"></a>
 						</td>
 						<td  id="choicePerScoreTd">
 							<span id="choicePerScore"><s:property value="choicePerScore"/></span>
-							<a href=# onclick='changeChoicePerScore(true);'><img src='images/plus1.png' width='20'></a>
-							<a href=# onclick='changeChoicePerScore(false);'><img src='images/minus1.png' width='20'></a>
+							<a href=# onclick='changeChoicePerScore(true);'><img src='images/plus1.png' width='20' class="changeButton"></a>
+							<a href=# onclick='changeChoicePerScore(false);'><img src='images/minus1.png' width='20' class="changeButton"></a>
 						</td>
 						<td  id="blankQuestionNumTd">
 							<span id="blankQuestionNum"><s:property value="blankQuestionNum"/></span>
-							<a href=# onclick='changeBlankQuestionNum(true);'><img src='images/plus1.png' width='20'></a>
-							<a href=# onclick='changeBlankQuestionNum(false);'><img src='images/minus1.png' width='20'></a>
+							<a href=# onclick='changeBlankQuestionNum(true);'><img src='images/plus1.png' width='20' class="changeButton"></a>
+							<a href=# onclick='changeBlankQuestionNum(false);'><img src='images/minus1.png' width='20' class="changeButton"></a>
 						</td>
 						<td id="blankPerScoreTd">
 							<span id="blankPerScore"><s:property value="blankPerScore"/></span>
-							<a href=# onclick='changeBlankPerScore(true);'><img src='images/plus1.png' width='20'></a>
-							<a href=# onclick='changeBlankPerScore(false);'><img src='images/minus1.png' width='20'></a>
+							<a href=# onclick='changeBlankPerScore(true);'><img src='images/plus1.png' width='20' class="changeButton"></a>
+							<a href=# onclick='changeBlankPerScore(false);'><img src='images/minus1.png' width='20' class="changeButton"></a>
 						</td>
 						<td id="judgeQuestionNumTd">
 							<span id="judgeQuestionNum"><s:property value="judgeQuestionNum"/></span>
-							<a href=# onclick='changeJudgeQuestionNum(true);'><img src='images/plus1.png' width='20'></a>
-							<a href=# onclick='changeJudgeQuestionNum(false);'><img src='images/minus1.png' width='20'></a>
+							<a href=# onclick='changeJudgeQuestionNum(true);'><img src='images/plus1.png' width='20' class="changeButton"></a>
+							<a href=# onclick='changeJudgeQuestionNum(false);'><img src='images/minus1.png' width='20' class="changeButton"></a>
 						</td>
 						<td id="judgePerScoreTd">
 							<span id="judgePerScore"><s:property value="judgePerScore"/></span>
-							<a href=# onclick='changeJudgePerScore(true);'><img src='images/plus1.png' width='20'></a>
-							<a href=# onclick='changeJudgePerScore(false);'><img src='images/minus1.png' width='20'></a>
+							<a href=# onclick='changeJudgePerScore(true);'><img src='images/plus1.png' width='20' class="changeButton"></a>
+							<a href=# onclick='changeJudgePerScore(false);'><img src='images/minus1.png' width='20' class="changeButton"></a>
 						</td>
 					</tr>
 					<tr>

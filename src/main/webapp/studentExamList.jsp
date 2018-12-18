@@ -10,6 +10,7 @@
 	<link type="text/css" rel="stylesheet" href="css/fontawesome-all.min.css">
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 	<link type="text/css" rel="stylesheet" href="css/material_icons.css">
+	<link type="text/css" rel="stylesheet" href="css/mobileadaptive.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style type="text/css">
 		body {
@@ -82,7 +83,7 @@
 				</s:iterator>
 			</table>
 			
-			<h4 style="text-align:center;" class="light-green-text text-darken-1">已完成考试列表</h4>
+<%--			<h4 style="text-align:center;" class="light-green-text text-darken-1">已完成考试列表</h4>
 			<table class="mytable">
 				<thead>
 					<tr>
@@ -127,7 +128,7 @@
 						</td>
 					</tr>
 				</s:iterator>
-			</table>
+			</table>--%>
 		</div>
 	</div>
 	<form name="myform"></form>

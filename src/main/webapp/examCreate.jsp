@@ -10,6 +10,7 @@
 <link type="text/css" rel="stylesheet" href="css/fontawesome-all.min.css">
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 <link type="text/css" rel="stylesheet" href="css/material_icons.css">
+	<link type="text/css" rel="stylesheet" href="css/mobileadaptive.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 	body{
@@ -45,14 +46,14 @@
 	<div id="main">
 		<div class="container">
 			<div class="row" style="margin-top:20px;">
-				<div class="input-field col s4 center-align">
+				<div class="input-field col s12 l4 center-align">
 	                <i class="material-icons prefix small">info_outline</i>
 	                <input type="text" placeholder="输入本次考试的名称" id="examName" name="examName" 
 	                value="<s:property value="#session.EXAM_CREATE_NAME"/>" 
 	                class="validate" style="font-size:large">
 	                <label for="examName">考试名称</label>
 	            </div>
-	            <div class="input-field col s8 center-align">
+	            <div class="input-field col s12 l8 center-align">
 	                <i class="material-icons prefix small">info_outline</i>
 	                <input type="text" placeholder="输入本次考试的一些描述信息" id="examDetail" name="examDetail" 
 	                value="<s:property value="#session.EXAM_CREATE_DETAIL"/>" 
@@ -61,15 +62,15 @@
 	            </div>
             </div>
             <div class="row">
-            	<a href="#searchchoicedialog" class="modal-trigger lime darken-4 waves-effect waves-teal btn">
+            	<a href="#searchchoicedialog" class="modal-trigger lime darken-4 waves-effect waves-teal btn col s12 m4">
 					<span class="yellow-text text-lighten-1">加入选择题
 	        		<i class="material-icons right">search</i></span>
 	    		</a>
-            	<a href="#searchblankdialog" class="modal-trigger light-green darken-4 waves-effect waves-blue btn">
+            	<a href="#searchblankdialog" class="modal-trigger light-green darken-4 waves-effect waves-blue btn col s12 m4">
 					<span class="yellow-text text-lighten-1">加入填空题
 	        		<i class="material-icons right">search</i></span>
 	    		</a>
-            	<a href="#searchjudgedialog" class="modal-trigger brown darken-4 waves-effect waves-green btn" >
+            	<a href="#searchjudgedialog" class="modal-trigger brown darken-4 waves-effect waves-green btn col s12 m4" >
 					<span class="yellow-text text-lighten-1">加入判断题
 	        		<i class="material-icons right">search</i></span>
 	    		</a>
