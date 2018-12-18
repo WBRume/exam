@@ -45,7 +45,7 @@ body {
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+<%--	<%@ include file="include/header.jsp" %>--%>
 	<div id="main">
 		<div class="container" style="margin-top: 20px;">
 			<form name="form1" method="post" onsubmit="answerCheckDetermin();" action="choicesearchlist">
@@ -81,7 +81,7 @@ body {
                         <input type="text" placeholder="输入知识点" id="knowledgeSearch" name="knowledgeSearch" 
                         value="<s:property value="knowledgeSearch"/>" 
                         class="validate" style="font-size:large">
-                        <label for="password">知识点</label>
+                        <label <%--for="password"--%>>知识点</label>
                     </div>
                     <div class="input-field col l2 m4 s12 vertical-align">
 						<button class="red darken-4 waves-effect waves-teal btn-flat" type="submit">

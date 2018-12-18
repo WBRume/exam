@@ -22,7 +22,7 @@ footer.page-footer{
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp"%>
+	<%--<%@ include file="include/header.jsp"%>--%>
 
 	<div id="main" style=" background: url(images/bkgd.png); overflow-x: scroll">
 		<div class="container" style="padding: 20px;width: 100%;max-width: 100%;">

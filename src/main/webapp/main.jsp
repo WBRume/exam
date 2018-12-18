@@ -35,7 +35,7 @@
     </style>
 </head>
 <body>
-<%@ include file="include/header.jsp" %>
+<%--<%@ include file="include/header.jsp" %>--%>
 <div id="main">
     <div class="container" style="padding: 20px;">
         <div class="divider" style="height:20px;background:#fff;"></div>
@@ -150,7 +150,6 @@
                     </div>
                 </div>
             </s:if>
-
         </div>
     </div>
 </div>

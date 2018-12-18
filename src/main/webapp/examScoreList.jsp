@@ -49,7 +49,7 @@ body {
 		
 			<form name="form1" method="post" action="examscorelistforsearch">
 				<div class="row" style="margin-top: 10px;">
-                    <div class="input-field col l4 m4 s12">
+                    <div class="input-field col l4 m4 s12" style="display: none">
                         <i class="material-icons prefix small">spellcheck</i>
                         <select multiple id="classSearch" name="classSearch">
                         <option value="" disabled>选择</option>
@@ -89,10 +89,10 @@ body {
 					<tr
 						style="background-color:<s:if test="#st.odd">#efefef</s:if><s:else>#ffffff</s:else>">
 						<td><s:property value="#st.index+1" /></td>
-						<td><s:property value="student.name" /></td>
+						<td><s:property value="user.name" /></td>
 						<td>
 							<a class="namelink"
-							href="<s:url action="examdetailwithanswer"><s:param name="stu_id" value="%{student.id}"></s:param><s:param name="exam_id" value="%{exam.id}"></s:param><s:param name="exam_strategy_id" value="%{examStrategy.id}"></s:param></s:url>">
+							href="<s:url action="examdetailwithanswer"><s:param name="stu_id" value="%{user.id}"></s:param><s:param name="exam_id" value="%{exam.id}"></s:param><s:param name="exam_strategy_id" value="%{examStrategy.id}"></s:param></s:url>">
 								<s:property value="score" />
 							</a>
 						</td>

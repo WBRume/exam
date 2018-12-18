@@ -40,6 +40,13 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
+	public List<User> findByRegNo(String regNo){
+		Query q = sessionFactory.getCurrentSession().createQuery("from User where registerNo=?0");
+		q.setString("0",regNo);
+		return q.list();
+	}
+	@Override
+	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
 	public User findByRegNoAndPassword(String regNo, String password) {
 		Query q=sessionFactory.getCurrentSession().createQuery("from User where registerNo=?0 and password=?1");
 		q.setString("0", regNo);

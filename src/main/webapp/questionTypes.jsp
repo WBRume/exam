@@ -31,7 +31,7 @@ a{
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+	<%--<%@ include file="include/header.jsp" %>--%>
 
 	<div id="main">
 		<div class="container" style="padding: 20px;">

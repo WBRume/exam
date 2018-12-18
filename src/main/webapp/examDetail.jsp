@@ -47,10 +47,14 @@
 		<tr style="background-color:<s:if test="#st.odd">#efefef</s:if><s:else>#ffffff</s:else>">
 			<td colspan="2">
 				<table>
-					<tr><td>A. </td><td><s:property value="choiceA"/></td></tr>
+					<%--<tr><td>A. </td><td><s:property value="choiceA"/></td></tr>
 					<tr><td>B. </td><td><s:property value="choiceB"/></td></tr>
 					<tr><td>C. </td><td><s:property value="choiceC"/></td></tr>
-					<tr><td>D. </td><td><s:property value="choiceD"/></td></tr>
+					<tr><td>D. </td><td><s:property value="choiceD"/></td></tr>--%>
+					<tr><td></td><td><s:property value="choiceA"/></td></tr>
+					<tr><td></td><td><s:property value="choiceB"/></td></tr>
+					<tr><td></td><td><s:property value="choiceC"/></td></tr>
+					<tr><td></td><td><s:property value="choiceD"/></td></tr>
 				</table>
 			</td>
 		</tr>

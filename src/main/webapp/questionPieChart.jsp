@@ -26,7 +26,7 @@ body {
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp"%>
+<%--	<%@ include file="include/header.jsp"%>--%>
 
 	<div id="main">
 		<div class="container" style="padding: 10px;">
@@ -246,7 +246,7 @@ body {
 	
     <!-- 饼图对话框 -->
 	<div id="chartdialog" class="modal" style="height: 750px; width:950px;">
-        <div class="modal-content" style="text-align:center;padding 0 auto;">
+        <div class="modal-content" style="text-align:center;padding: 0 auto;">
             <img id="statsImg" src="charts/questionpiechart.action">
         </div>
     </div>

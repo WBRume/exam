@@ -11,7 +11,7 @@ public class StudentExamScore {
 	@GeneratedValue(strategy=GenerationType.IDENTITY,generator = "studentExamScoreSeq")
 	private int id;
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="student_id")
+	@JoinColumn(name="student_id",foreignKey = @ForeignKey(name="none",value = ConstraintMode.NO_CONSTRAINT))
 	private User user;
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="exam_id")

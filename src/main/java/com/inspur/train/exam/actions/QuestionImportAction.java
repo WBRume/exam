@@ -118,7 +118,7 @@ public class QuestionImportAction extends ActionSupport {
 		this.addActionMessage(cnt+"道选择题已经导入题库");
 		return SUCCESS;
 	}
-	
+
 	public String executeForBlank() throws Exception {
 		logger.info("导入填空题");
 		int cnt = bankQuestionDao.importBlankFromTxt(blankImportFile);

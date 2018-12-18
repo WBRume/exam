@@ -43,7 +43,7 @@ body {
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+<%--	<%@ include file="include/header.jsp" %>--%>
 	<div id="main">
 		<form name="form1" method="post" action="studentsearchlist">
 		<input type="hidden" name="selectStudentFor" value="<s:property value='selectStudentFor'/>">
@@ -56,7 +56,7 @@ body {
                         <input type="text" placeholder="输入前几位或完整学号" id="regNoSearch" name="regNoSearch" 
                         value="<s:property value="regNoSearch"/>" 
                         class="validate" style="font-size:large">
-                        <label for="regNoSearch">学号</label>
+                        <label for="regNoSearch">用户编号</label>
                     </div>
                     <div class="input-field col l2 m4 s12">
                         <i class="tiny material-icons prefix ">toc</i>
@@ -65,7 +65,7 @@ body {
                         class="validate" style="font-size:large">
                         <label for="nameSearch">姓名</label>
                     </div>
-                    <div class="input-field col l3 m4 s12">
+                    <div class="input-field col l3 m4 s12" style="display: none">
                     	<span class="valign" style="display:inline-block;margin:0 20px;"><label>性别:</label></span>
                         <!-- i class="tiny material-icons prefix ">toc</i-->
                         <input type="radio" class="with-gap valign" id="male" name="genderSearch" value="true">
@@ -73,7 +73,7 @@ body {
                         <input type="radio" class="with-gap valign" id="female" name="genderSearch" value="false">
                         <label for="female">女</label>
                     </div>
-                    <div class="input-field col l2 m4 s12">
+                    <div class="input-field col l2 m4 s12" style="display: none">
                         <i class="material-icons prefix small">description</i>
                         <input type="text" placeholder="输入班级名中包含的字符" id="gradeSearch" name="gradeSearch" 
                         value="<s:property value="gradeSearch"/>" 
@@ -93,10 +93,10 @@ body {
 						<th width="100px">
 							<input type="checkbox" name="selectAll" id="selectAll" onclick="selectAllStudent()"><label for="selectAll">序号</label>
 						</th>
-						<th width="120px">学号</th>
+						<th width="120px">用户编号</th>
 						<th>姓名</th>
-						<th width="50px">性别</th>
-						<th>班级</th>
+						<th width="50px" style="display: none">性别</th>
+						<th style="display: none">班级</th>
 					</tr>
 				</thead>
 				<s:iterator value="studentList" status="st" var="item">
@@ -108,13 +108,13 @@ body {
 						</td>
 						<td><s:property value="registerNo"/></td>
 						<td><s:property value="name" /></td>
-						<td><s:if test="gender">男</s:if><s:else>女</s:else></td>
-						<td><s:property value="grade.name" /></td>
+						<td style="display: none"><s:if test="gender">男</s:if><s:else>女</s:else></td>
+						<td style="display: none"><s:property value="grade.name" /></td>
 					</tr>
 				</s:iterator>
 			</table>
 			<button class="red darken-4 waves-effect waves-teal btn-flat" type="button" onclick="form1.action='getselectedstudent';form1.submit();">
-				<span class="yellow-text text-lighten-1">选定参与考试的学生
+				<span class="yellow-text text-lighten-1">选定参与考试的用户
 	       		<i class="material-icons right">search</i></span>
 	   		</button>
 		</div>

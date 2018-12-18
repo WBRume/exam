@@ -28,14 +28,15 @@
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+	<%--<%@ include file="include/header.jsp" %>--%>
 	<div class="container">
 	<form class="col s12" name="form1" method="post" action="importchoice" enctype="multipart/form-data">
 	<h4>将指定格式文件导入对应题型的题库</h4>
 	<hr>
+
 	<table class="mytable">
 		<tr>
-			<td style="width: 210px;max-width:210px;"><span class="purple-text text-darken-2 comment">选择题：（<a href="other/选择题import.txt">导入格式示例</a>）</span></td>
+			<td style="width: 210px;max-width:210px;"><span class="purple-text text-darken-2 comment">选择题：(<a onclick="form1.action='xzimport';form1.submit();">导入格式示例</a>)</span></td>
 			<td>
 			    <div class="file-field input-field">
                     <div class="btn">
@@ -56,7 +57,8 @@
     		</td>
 		</tr>
 		<tr>
-			<td style="width: 210px;max-width:210px;"><span class="purple-text text-darken-2 comment">填空题：（<a href="other/填空题import.txt">导入格式示例</a>）</span></td>
+			<%--（<a href="other/填空题import.txt">导入格式示例</a>）--%>
+			<td style="width: 210px;max-width:210px;"><span class="purple-text text-darken-2 comment">填空题：(<a onclick="form1.action='tkimport';form1.submit();">导入格式示例</a>)</span></td>
 			<td>
 			    <div class="file-field input-field">
                     <div class="btn">
@@ -77,7 +79,13 @@
     		</td>
 		</tr>
 		<tr>
-			<td style="width: 210px;max-width:210px;"><span class="purple-text text-darken-2 comment">判断题：（<a href="other/判断题import.txt">导入格式示例</a>）</span></td>
+			<td style="width: 210px;max-width:250px;"><span class="purple-text text-darken-2 comment">判断题：(<a onclick="form1.action='pdimport';form1.submit();">导入格式示例</a>)</span>
+
+				<%--<button class="blue darken-4 waves-effect waves-teal btn-flat" type="button" style="margin-top:20px;"
+				onclick="form2.action='pdimport';form2.submit();">
+				<span class="yellow-text text-lighten-1">导入格式示例
+        		</span>
+				</button>--%></td>
 			<td>
 			    <div class="file-field input-field">
                     <div class="btn">
@@ -99,12 +107,13 @@
 		</tr>
 	</table>
 	</form>
+		<div style="display:none;">
 	<h4>将指定格式文件导入学生信息</h4>
 	<hr>
 	<form class="col s12" name="form2" method="post" action="importstudent" enctype="multipart/form-data">
 	<table class="mytable">
 		<tr>
-			<td style="width: 210px;max-width:210px;"><span class="purple-text text-darken-2 comment">学生信息文件：（<a href="other/学生import.txt">导入格式示例</a>）</span></td>
+			<td style="width: 210px;max-width:210px;"><span class="purple-text text-darken-2 comment">学生信息：(<a onclick="form2.action='xsimport';form2.submit();">导入格式示例</a>)</span></td>
 			<td>
 			    <div class="file-field input-field">
                     <div class="btn">
@@ -126,6 +135,7 @@
 		</tr>
 	</table>
 	</form>
+		</div>
 	</div>
 	<%@ include file="include/footer.jsp" %>
 	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>

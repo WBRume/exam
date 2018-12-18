@@ -81,7 +81,7 @@
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+	<%--<%@ include file="include/header.jsp" %>--%>
 	<form name="form1" method="post">
 	<input type="hidden" name="select_student_for" value="exam_compose_random">
 	<input type="hidden" name="choiceQuestionNum" value="<s:property value="choiceQuestionNum"/>">

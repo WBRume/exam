@@ -110,7 +110,7 @@ public class BankChoiceQuestion extends BankQuestion {
 		this.choiceH = choiceH;
 	}
 
-	@Override
+/*	@Override
 	public String toString() {
 		return String.valueOf(getId());
 //		return "选择题 ["+ ", 题目：" + getContent() 
@@ -119,7 +119,7 @@ public class BankChoiceQuestion extends BankQuestion {
 //				+ ", 选项B：" + choiceB 
 //				+ ", 选项C：" + choiceC 
 //				+ ", 选项D：" + choiceD + "]";
-	}
+	}*/
 	
 	
 	

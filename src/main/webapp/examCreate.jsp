@@ -40,7 +40,7 @@
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+	<%--<%@ include file="include/header.jsp" %>--%>
 	
 	<form name="form1" method="post">
 	<div id="main">
@@ -128,7 +128,7 @@
 					</table>
 			    </div>
 			 </div>
-
+			<s:actionerror/>
 			<div class="row">
             	<button class="red darken-4 waves-effect waves-teal btn-flat" 
             		type="button" onclick="form1.action='createexamquestions';form1.submit()">
@@ -136,6 +136,7 @@
 	        		<i class="material-icons right">search</i></span>
 		    	</button>
             </div>
+
 		</div>
 	</div>
 	</form>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,19 @@
 <link type="text/css" rel="stylesheet" href="css/material_icons.css">
 	<link type="text/css" rel="stylesheet" href="css/mobileadaptive.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script>
+        function showAnswer(){
+            $("#showButton").hide();
+            $("#choiceAnswer").show();
+            /*if ($("#blankAnswer").css("display")=="none"){
+                $("#blankAnswer").show();
+            }else{
+                $("#blankAnswer").hide();
+            }*/
+        }
+	</script>
 <style type="text/css">
 	body {
 		font-family: Roboto, "Microsoft YaHei";
@@ -47,7 +61,7 @@
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+	<%--<%@ include file="include/header.jsp" %>--%>
 	<div id="main">
 		<table class="mytable">
 			<tr style="background-color:#f9fbe7">
@@ -58,7 +72,7 @@
 			   		</button>
 				</td>
 				<td style="text-align:left;">
-					<s:property escapeHtml="false" value="@cn.lynu.lyq.java_exam.actions.ExamDetailShowAction2@showContentWithImage(question.content)"/>
+					<s:property escapeHtml="false" value="question.content"/>
 				</td>
 			</tr>
 			<tr style="background-color:#f9fbe7">
@@ -73,7 +87,12 @@
 			</tr>
 			<tr>
 				<td colspan="2"  class="red-text text-darken-2" style="height:20px;">
-					<span class="blue-text  text-darken-2">答案：</span><s:property value="question.answer"/>
+					<%--<span class="blue-text  text-darken-2">答案：</span>--%>
+						<button id="showButton" class="teal darken-4 waves-effect waves-teal btn-flat" type="button" name="action" onclick="showAnswer();">
+						<span class="white-text  text-darken-2">显示答案
+			       		</span>
+						</button>
+						<div id="choiceAnswer" style="display: none"><span class="blue-text text-darken-2">答案：</span><s:property value="question.answer"/></div>
 				</td>
 			</tr>
 			

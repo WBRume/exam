@@ -84,18 +84,7 @@ public class ExamCreateAction extends ActionSupport {
 		this.judgeSelect = judgeSelect;
 	}
 
-	@Override
-	public String execute() throws Exception {
-		ActionContext ctx=ActionContext.getContext();
-		Map<String,Object> session = ctx.getSession();
-		session.remove("EXAM_CREATE_NAME");
-		session.remove("EXAM_CREATE_DETAIL");
-		session.remove("EXAM_CREATE_CHOICELIST");
-		session.remove("EXAM_CREATE_BLANKLIST");
-		session.remove("EXAM_CREATE_JUDGELIST");
-		return SUCCESS;
-	}
-	
+
 	public String executeForSelectQuestions() throws Exception{
 		ActionContext ctx=ActionContext.getContext();
 		Map<String,Object> session = ctx.getSession();
@@ -131,22 +120,34 @@ public class ExamCreateAction extends ActionSupport {
 		}
 		return SUCCESS;
 	}
-	
+
+
+
 	@SuppressWarnings("unchecked")
 	public String executeForCreateExam() throws Exception{
-		ActionContext ctx=ActionContext.getContext();
-		Map<String,Object> session = ctx.getSession();
-		logger.debug("examName="+examName);
-		logger.debug("examDetail="+examDetail);
-		
-		Exam exam=new Exam(examName,examDetail,0); //固定抽题
-		exam.setCreateDate(new Date());
-		exam.setScheduledTime(Integer.parseInt(PropertyUtils.getProperty(Constants.DEFAULT_EXAM_SCHEDULED_TIME)));
-		List<BankChoiceQuestion> choiceListSelected = (List<BankChoiceQuestion>)session.get("EXAM_CREATE_CHOICELIST");
-		List<BankBlankFillingQuestion> blankListSelected = (List<BankBlankFillingQuestion>)session.get("EXAM_CREATE_BLANKLIST");
-		List<BankJudgeQuestion> judgeListSelected = (List<BankJudgeQuestion>)session.get("EXAM_CREATE_JUDGELIST");
-		examDao.examCreateWithQuestions(exam, choiceListSelected, blankListSelected, judgeListSelected);
+		if (examName.equals(null) || examName.equals("")) {
+			this.clearErrorsAndMessages();
+			this.addActionError("请输入考试名称");
+			return  INPUT;
+		}else {
+
+			ActionContext ctx = ActionContext.getContext();
+			Map<String, Object> session = ctx.getSession();
+			logger.debug("examName=" + examName);
+			logger.debug("examDetail=" + examDetail);
+
+			Exam exam = new Exam(examName, examDetail, 0); //固定抽题
+			exam.setCreateDate(new Date());
+			exam.setScheduledTime(Integer.parseInt(PropertyUtils.getProperty(Constants.DEFAULT_EXAM_SCHEDULED_TIME)));
+			List<BankChoiceQuestion> choiceListSelected = (List<BankChoiceQuestion>) session.get("EXAM_CREATE_CHOICELIST");
+			List<BankBlankFillingQuestion> blankListSelected = (List<BankBlankFillingQuestion>) session.get("EXAM_CREATE_BLANKLIST");
+			List<BankJudgeQuestion> judgeListSelected = (List<BankJudgeQuestion>) session.get("EXAM_CREATE_JUDGELIST");
+			examDao.examCreateWithQuestions(exam, choiceListSelected, blankListSelected, judgeListSelected);
+
+		}
 		return SUCCESS;
+
 	}
+
 
 }

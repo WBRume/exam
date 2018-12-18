@@ -102,9 +102,9 @@ public class ExamDaoImpl implements ExamDao {
 	}
 	@Override
 	public void composeExamToRandom(Exam exam,List<BankChoiceQuestion> listChoice,List<BankBlankFillingQuestion> listBlankFilling,List<BankJudgeQuestion> listJudge,int[] questionNum){
-		List<BankChoiceQuestion> listChoiceExtracted = extractRandomQuestions(listChoice,questionNum[0]);
-		List<BankBlankFillingQuestion> listBlankFillingExtracted = extractRandomQuestions(listBlankFilling,questionNum[1]);
-		List<BankJudgeQuestion> listJudgeExtracted = extractRandomQuestions(listJudge,questionNum[2]);
+		List<BankChoiceQuestion> listChoiceExtracted = extractRandomQuestionsToRandom(listChoice,questionNum[0]);
+		List<BankBlankFillingQuestion> listBlankFillingExtracted = extractRandomQuestionsToRandom(listBlankFilling,questionNum[1]);
+		List<BankJudgeQuestion> listJudgeExtracted = extractRandomQuestionsToRandom(listJudge,questionNum[2]);
 
         logger.debug("listChoiceExtracted="+listChoiceExtracted);
         logger.debug("listBlankFillingExtracted="+listBlankFillingExtracted);
@@ -171,6 +171,22 @@ public class ExamDaoImpl implements ExamDao {
 		return listExtracted;
 	}
 
+
+	/*
+	 * 从某类型（填空、选择、判断）题目list中随机抽取num个不重复的题
+	 */
+	private static <T> List<T> extractRandomQuestionsToRandom(List<T> list,int num){
+		int szOriginal = list.size();
+		List<T> listExtracted = new ArrayList<>();
+		if(szOriginal >= num){
+			Random random = new Random();
+			for(int i=0; i<num; i++){
+				T q=list.get(random.nextInt(szOriginal-i));
+				listExtracted.add(q);
+			}
+		}
+		return listExtracted;
+	}
 	@Override
 	public void examCreateWithQuestions(Exam exam, List<BankChoiceQuestion> choiceList,
 			List<BankBlankFillingQuestion> blankList, List<BankJudgeQuestion> judgeList) {

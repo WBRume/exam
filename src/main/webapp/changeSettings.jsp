@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+	<%--<%@ include file="include/header.jsp" %>--%>
 	<div id="main">
 		<div class="container" style="min-height:370px;">
 			<form name="form1" action="changesettings" method="post">

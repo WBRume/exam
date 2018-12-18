@@ -5,9 +5,13 @@ import java.util.Date;
 import javax.persistence.*;
 
 @MappedSuperclass
+
 public abstract class BankQuestion {
-    @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+
+    /*@GeneratedValue(strategy=GenerationType.SEQUENCE)*/
+	@Id
+	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "bankQuestionSeq")
+	@SequenceGenerator(name = "bankQuestionSeq",sequenceName = "BANKQUESTION_SEQ",allocationSize = 1,initialValue = 1)
 	private int id;
 	private String name;//题目标题，可省略
 	private String content; //题干，对于填空题、判断题就是题目本身，

@@ -79,19 +79,19 @@ public class ExamSummaryAction extends ActionSupport {
 		List<Object> blankAnswerList = answerMap.get(QuestionType.BLANK_FILLING);
 		List<Object> blankSubmmitedList = new ArrayList<>();
 		int submittedBlankCnt=0;
-		for(int i=0; blankAnswerList!=null && i<blankAnswerList.size(); i++){
+		for(int i=0; blankAnswerList!=null && i < blankAnswerList.size(); i++){
 			@SuppressWarnings("unchecked")
 			List<String> answerListForCurrentQ = (List<String>)blankAnswerList.get(i);
 			List<String> answerSubmittedListForCurrentQ = new ArrayList<>();
 			for(int j=0; j<answerListForCurrentQ.size(); j++){
 				Parameter p = params.get("q"+(i+1)+"_blank"+(j+1));
 				String value=p.getValue();
-				if(value != null){
-					if("".equals(value.trim())){
-						answerSubmittedListForCurrentQ.add(null);
-					}
+				if(value != null && value != "" ){
+				//	if("".equals(value.trim())){
+						answerSubmittedListForCurrentQ.add(value);
+				//	}
 				}else{
-					answerSubmittedListForCurrentQ.add(value);
+					answerSubmittedListForCurrentQ.add(null);
 					submittedBlankCnt++;
 				}
 			}

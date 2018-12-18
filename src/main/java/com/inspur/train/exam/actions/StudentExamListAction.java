@@ -119,7 +119,7 @@ public class StudentExamListAction extends ActionSupport {
 	 * 统计填空题中空的个数
 	 */
 	private int countBlank(String content){
-		Pattern p = Pattern.compile("[_]{2,}");//含有至少两个_符号表示空白
+		Pattern p = Pattern.compile("[_]{2}");//含有至少两个_符号表示空白
 		Matcher m = p.matcher(content);
 		int cnt=0;
 		while (m.find()) {

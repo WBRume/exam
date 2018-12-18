@@ -44,7 +44,7 @@
 	</style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+	<%--<%@ include file="include/header.jsp" %>--%>
 	<div id="main">
 		<div class="container" style="min-height: 350px;">
 			<h4 style="text-align:center;" class="light-green-text text-darken-1">待参加考试列表</h4>

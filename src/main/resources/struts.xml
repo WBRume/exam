@@ -22,7 +22,7 @@
 		<global-results>
 			<result name="error">main.jsp</result>
 		</global-results>
-		
+
 		<!-- 系统设置 -->
 		<action name="modifysettings" class="modifySettings">
 			<result>changeSettings.jsp</result>
@@ -30,7 +30,19 @@
 		<action name="changesettings" class="modifySettings" method="executeForUpdate">
 			<result>main.jsp</result>
 		</action>
-		
+		<!--题目导入-->
+		<action name="pdimport" class="pdImport">
+			<result>other/pdimport.jsp</result>
+		</action>
+		<action name="tkimport" class="pdImport">
+			<result>other/tkimport.jsp</result>
+		</action>
+		<action name="xzimport" class="pdImport">
+			<result>other/xzimport.jsp</result>
+		</action>
+		<action name="xsimport" class="pdImport">
+			<result>other/xsimport.jsp</result>
+		</action>
 		<!-- 设置和发送广播（推送）消息 -->
 		<action name="pushbroadcastmessage" class="pushBroadcastMessage">
 			<result>broadcastMessage.jsp</result>
@@ -74,7 +86,10 @@
 		<action name="examhandin" class="examHandIn">
 			<result>examHandIn.jsp</result>
 		</action>
-
+		<!-- APP用户登录 -->
+		<action name="applogin" class="appUserLogin">
+			<result>main.jsp</result>
+		</action>
 		<!-- 登录，登出 -->
 		<action name="login" class="userLogin">
 			<result>main.jsp</result>
@@ -167,12 +182,14 @@
 			<result>examCompose.jsp</result>
 		</action>
 		<action name="createexam" class="examCreate">
+
 			<result>examCreate.jsp</result>
 		</action>
 		<action name="createexam1" class="examCreate" method="executeForSelectQuestions">
 			<result>examCreate.jsp</result>
 		</action>
 		<action name="createexamquestions" class="examCreate" method="executeForCreateExam">
+			<result  name="input">examCreate.jsp</result>
 			<result type="chain">
 				<param name="actionName">examcompose</param>
 			</result>
@@ -286,4 +303,4 @@
 			</result>
 		</action>
 	</package>
-</struts>  
+</struts>

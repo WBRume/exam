@@ -13,11 +13,14 @@ public interface UserDao {
 	User findById(int id);
 	List<User> findAll();
 	List<User> findByGrade(Group g);
-	
+
+
+	List<User> findByRegNo(String regNo);
+
 	void save(User s);
 	void update(User s);
 	void delete(User s);
-	
+
 	int importFromTxt(File file);
 
 }

@@ -58,10 +58,16 @@
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+<%--<%@ include file="include/header.jsp" %>--%>
+
+<div style="width:200px ;height:120px;border:0
+solid navy;overflow:auto;" id="examName" style="margin-top:20px;font-size:20px;">
+
+</div>
+
 	<form name="form1" method="post">
 	<input type="hidden" name="select_student_for" value="exam_compose">
-	<div id="main">
+		<div id="main" style="overflow: auto">
 		<div class="container" style="min-height:370px;">
 			<table class="mytable">
 				<thead>
@@ -107,7 +113,7 @@
 			type="button" name="action" style="margin-top:20px;"
 			onclick="form1.action='createexam';form1.submit();">
 				<span class="yellow-text text-lighten-1">创建新的考试
-        		<i class="material-icons right">loop</i></span>
+        		    <i class="material-icons right">loop</i></span>
     		</button>
 			<table id="strategyTable" class="mytable" <s:if test="strategyList==null && strategySelect==0">style="display:none"</s:if>>
 				<thead>
@@ -201,8 +207,6 @@
 				    </div>
     			</s:iterator>
     		</div>
-    		
-
 
               <button class="red darken-4 waves-effect waves-teal btn-flat"
                     type="button" style="margin-top:20px;<s:if test='studentList==null || studentList.size==0'>display:none;</s:if>" id="selectStudentButton"
@@ -211,24 +215,56 @@
         		<i class="material-icons right">loop</i></span>
             </button>
 
-
             <button class="purple darken-4 waves-effect waves-teal btn-flat"
                     type="button" style="margin-top:20px;<s:if test='studentList==null || studentList.size==0'>display:none;</s:if>" id="selectStudentButton2"
-                    onclick="form1.action='createstudentexamtorandom';form1.submit();">
+                    onclick="selectNum()">
 				<span class="yellow-text text-lighten-1">为这些学生随机分配试题
         		<i class="material-icons right">loop</i></span>
             </button>
+			<div  class="row"  id="selectTable" style="display: none;" >
 
+				<table>
+					　　 <tr><th style="width:120px;">
+					选择题数量
+				         </th><th style="width:120px;">
+					填空题数量
+				         </th><th style="width:120px;">
+					判断题数量
+				         </th></tr>
+					<tr>
+						 <td>
+                            <input type="number" name="choiceQuestionNum" id="choiceQuestionNum" value="" style="width:120px;">
+					     </td>
+						<td>
+							<input type="number" name="blankQuestionNum" id="blankQuestionNum" value="" style="width:120px;">
+						</td>
+						<td>
+							<input type="number" name="judgeQuestionNum" id="judgeQuestionNum" value="" style="width:120px;">
+						</td>
+					</tr>
+				</table>
+				<button class="blue darken-4 waves-effect waves-teal btn-flat"
+			     type="button" style="margin-top:20px;"
+			     onclick="form1.action='createstudentexamtorandom';form1.submit();">
+				<span class="yellow-text text-lighten-1">确定分题方案
+        		<i class="material-icons right">loop</i></span>
+				</button>
+			</div>
 
 		</div>
-	</div>
+		</div>
 	</form>
+
+
 	<%@ include file="include/footer.jsp" %>
 	
 	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	
 	<script>
+		function selectNum(){
+            document.getElementById("selectTable").style.display="block";
+		}
 		function createStrategy(examId){
 			$.post("createexamstrategy",
 					{examSelect:form1.examSelect.value},

@@ -24,7 +24,7 @@
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+	<%--<%@ include file="include/header.jsp" %>--%>
 	<div class="container">
 	<form class="col s12" name="form1" method="post" action="examsummary">
 	<h4>得分：<s:property value="totalScore "/></h4>

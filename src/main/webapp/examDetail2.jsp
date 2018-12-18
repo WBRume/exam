@@ -54,7 +54,7 @@
     </style>
 </head>
 <body>
-<%@ include file="include/header.jsp" %>
+<%--<%@ include file="include/header.jsp" %>--%>
 <div class="container">
     <form class="col s12" name="form1" method="post" action="examsummary">
         <s:hidden name="remainingTime"></s:hidden>

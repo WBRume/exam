@@ -31,7 +31,7 @@
 </script>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+	<%--<%@ include file="include/header.jsp" %>--%>
 	<div class="container">
 	<form class="col s12" name="form1" method="post" action="examhandin">
 	<h4>答题情况</h4>
@@ -44,8 +44,9 @@
 		</tr>
 		<tr>
 			<td>共有<s:property value="submittedAnswerMap.BLANK_FILLING.size "/>道填空题</td>
-			<td style="<s:if test="submittedAnswerMap.BLANK_FILLING.size - submittedCntMap.BLANK_FILLING>0">color: red;</s:if><s:else>color:blue;</s:else>">
-				你已经答了<s:property value="submittedCntMap.BLANK_FILLING "/>个空白，未答<s:property value="submittedAnswerMap.BLANK_FILLING.size - submittedCntMap.BLANK_FILLING "/>道。
+			<%--//submittedAnswerMap.BLANK_FILLING.size - submittedCntMap.BLANK_FILLING--%>
+			<td style="<s:if test="submittedCntMap.BLANK_FILLING>0">color: red;</s:if><s:else>color:blue;</s:else>">
+				你已经答了<s:property value="submittedAnswerMap.BLANK_FILLING.size - submittedCntMap.BLANK_FILLING "/>个空白，未答<s:property value="submittedCntMap.BLANK_FILLING "/>道。
 			</td>
 		</tr>
 		<tr>

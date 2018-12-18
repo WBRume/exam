@@ -44,7 +44,7 @@ h2 {
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp"%>
+	<%--<%@ include file="include/header.jsp"%>--%>
 	<div id="main">
 		<h5 style="text-align:center;" class="light-green-text text-darken-1">
 			<s:property value="student.name"/>的"<s:property value="exam.name"/>"考试(exam_id=<s:property value="exam.id"/>)的答卷情况如下：

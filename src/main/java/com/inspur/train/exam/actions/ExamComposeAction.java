@@ -241,37 +241,41 @@ public class ExamComposeAction extends ActionSupport {
 
         //让画面仍然显示exam,strategy,student三个列表
         getAllExamList();
-        int blankCount = 0; //填空题个数
-        int choiceCount = 0; //选择题个数
-        int judgeCount = 0; //判断题个数
+
 
         Exam theExam = examDao.findById(examSelect);
         strategyList = examStrategyDao.findByExam(theExam);
         ExamStrategy theStrategy = examStrategyDao.findById(strategySelect);
         examQuestionList = examQuestionDao.findByExam(theExam);
 
+
+
         int blankPerScore = theStrategy.getBlankPerScore();  //填空题分值 （最好不用客户选定的，不好实现）
         int choicePerScore = theStrategy.getChoicePerScore(); //选择题分值 （同上)d
         int judgePerScore = theStrategy.getJudgePerScore(); //判断题分值
 
 
-		List<BankChoiceQuestion> listChoice = null; //选择题
-		List<BankJudgeQuestion> listJudge = null; //判断题
-		List<BankBlankFillingQuestion> listBlankFilling = null; //填空题
+		List<BankChoiceQuestion> listChoice = new ArrayList<>(); //选择题
+		List<BankJudgeQuestion> listJudge = new ArrayList<>(); //判断题
+		List<BankBlankFillingQuestion> listBlankFilling = new ArrayList<>(); //填空题
 
 		for(ExamQuestion examQuestion : examQuestionList){
 			int examType = examQuestion.getQuestionType();
-			if(examType == 0){
+			if(examType == QuestionType.CHOICE.ordinal()){
 				listChoice.add(examQuestion.getBankChoiceQuestion());
-			}else if(examType == 1){
+			}else if(examType == QuestionType.BLANK_FILLING.ordinal()){
 				listBlankFilling.add(examQuestion.getBankBlankFillingQuestion());
-			}else if(examType == 2){
+			}else if(examType == QuestionType.JUDGE.ordinal()){
 				listJudge.add(examQuestion.getBankJudgeQuestion());
 			}
 		}
 
+        int blankCount =  listBlankFilling.size(); //当前试卷的填空题个数
+        int choiceCount = listChoice.size(); //当前试卷的选择题个数
+        int judgeCount = listJudge.size(); //当前试卷的判断题个数
 		//TODO 获取各种题型个数 可以从页面传值
-        int[] questionNum = {5,5,5};
+        //順序為選擇 填空 判斷
+        int[] questionNum = {choiceQuestionNum,blankQuestionNum,judgeQuestionNum};
 
 
 
@@ -280,22 +284,28 @@ public class ExamComposeAction extends ActionSupport {
 
         //TODO 需要页面传值
         int totalScore = choiceQuestionNum*choicePerScore + blankQuestionNum*blankPerScore + judgeQuestionNum*judgePerScore;
-        if(totalScore != 100){
-            this.addActionError("总分不为100分，请修改策略！");
+        if(choiceQuestionNum < 0 || blankQuestionNum < 0 ||  judgeQuestionNum < 0){
+            this.addActionError("题目数量小于0，请核查！");
+        }
+        else if(choiceCount < choiceQuestionNum || blankCount < blankQuestionNum || judgeCount < judgeQuestionNum){
+            this.addActionError("题目数量超出，请核查！");
+        }
+        else if(totalScore < 100){
+            this.addActionError("总分小于100分，请修改策略！");
         }else {
             if (studentIds != null) {
                 for (int sid : studentIds) {
                     User theStudent = userDao.findById(sid);
 
-                    Exam newExam = new Exam(theExam + "随机组卷->" + theStudent.getName(), theExam + "->" + theStudent.getName(), 1);
-                    theExam.setCreateDate(new Date());
-                    theExam.setScheduledTime(Integer.parseInt(PropertyUtils.getProperty(Constants.DEFAULT_EXAM_SCHEDULED_TIME)));
+                    Exam newExam = new Exam(theExam.getName() + "随机组卷->" + theStudent.getName(), theExam.getName() + "->" + theStudent.getName(), 1);
+                    newExam.setScheduledTime(theExam.getScheduledTime());
+                    newExam.setCreateDate(new Date());
                     examDao.save(newExam);
 
                     examDao.composeExamToRandom(newExam, listChoice, listBlankFilling, listJudge, questionNum);
 
                     //确定每题多少分
-                    ExamStrategy newStrategy = new ExamStrategy(newExam, "随机分题策略", 5, 5, 5, "随机分题策略");
+                    ExamStrategy newStrategy = new ExamStrategy(newExam, "随机分题策略", choicePerScore, blankPerScore, judgePerScore, "随机分题策略");
                     examStrategyDao.save(newStrategy);
 
                     StudentExamScore studentExamScore = new StudentExamScore(theStudent, newExam, newStrategy, 0, ExamPhase.PAPER_INITIALIZED.getChineseName());

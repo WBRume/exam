@@ -53,7 +53,7 @@ public class StudentImportAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {  
-		logger.info("学生信息导入");
+		logger.info("学生信息");
 		int cnt = userDao.importFromTxt(studentImportFile);
 		logger.debug("studentImportFile="+studentImportFile);
 		logger.debug("studentFilePath="+studentFilePath);

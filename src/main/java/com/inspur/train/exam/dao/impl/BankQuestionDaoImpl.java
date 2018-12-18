@@ -461,7 +461,7 @@ public class BankQuestionDaoImpl implements BankQuestionDao {
 				if(line.equals("")){
 					continue;  //空行被忽略
 				}else if(line.startsWith("######")) {
-					if(content==null || content.equals("")){
+					if(content == null || content.equals("")){
 						continue; //每题开始行的######被忽略
 					}else{
 //						logger.debug("题干："+content);
@@ -485,12 +485,12 @@ public class BankQuestionDaoImpl implements BankQuestionDao {
 										break;
 								}
 							}else{
-								q=new BankBlankFillingQuestion(content,answer,knowledgePoint);
+								q =new BankBlankFillingQuestion(content,answer,knowledgePoint);
 							}
 						}
 						
 						sessionFactory.getCurrentSession().save(q);
-						
+
 						content = "";//题干
 						answer = "";//答案
 						knowledgePoint="";//知识点
@@ -508,7 +508,7 @@ public class BankQuestionDaoImpl implements BankQuestionDao {
 						content = firstStringLineProcess(line);
 						type=ImportStringLineTypeForBlank.CONTENT;
 					}else{  //不属于上述任何一种情况，则说明题干、答案、知识点占用了多行的情况。
-//						logger.debug("第二行："+line);
+                           //						logger.debug("第二行："+line);
 						switch(type){
 							case CONTENT:
 								content+="\n"+line;

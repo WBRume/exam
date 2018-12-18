@@ -16,7 +16,7 @@ public class ExamQuestionAnswer {
 	private ExamQuestion examQuestion;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="student_id")
+	@JoinColumn(name="student_id",foreignKey = @ForeignKey(name="none",value = ConstraintMode.NO_CONSTRAINT))
 	private User user;
 	
 	private String answer;

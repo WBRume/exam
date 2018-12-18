@@ -45,7 +45,7 @@ body {
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+	<%--<%@ include file="include/header.jsp" %>--%>
 	<div id="main">
 		<div class="container" style="margin-top: 20px;">
 			<form name="form1" method="post" action="blanksearchlist">

@@ -24,13 +24,13 @@ body {
 </style>
 </head>
 <body>
-	<%@ include file="include/header.jsp" %>
+	<%--<%@ include file="include/header.jsp" %>--%>
 
 	<div id="main">
 		<div class="container" style="padding: 20px;">
 			<form name="form1" method="post" action="scorestatsforsearch">
 				<div class="row" style="margin-top: 10px;">
-                    <div class="input-field col l4 m4 s12">
+                    <div class="input-field col l4 m4 s12" style="display: none">
                         <i class="material-icons prefix small">spellcheck</i>
                         <select multiple id="classSearch" name="classSearch">
                         <option value="" disabled>选择</option>
